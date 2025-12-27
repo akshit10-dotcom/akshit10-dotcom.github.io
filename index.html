@@ -49,6 +49,7 @@
             display: flex;
             gap: 20px;
             align-items: center;
+            flex: 1;
         }
 
         nav a {
@@ -61,7 +62,78 @@
         nav a:hover {
             color: #b3b3b3;
         }
+        .search-icon {
+            color: #e5e5e5;
+            font-size: 18px;
+            cursor: pointer;
+            margin-left: auto;
+        }
 
+        .search-toggle {
+            display: none;
+        }
+
+        .search-icon {
+            color: #e5e5e5;
+            font-size: 18px;
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        .search-bar {
+            display: none;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.75);
+            border: 1px solid #ffffff;
+            border-radius: 4px;
+            padding: 5px 10px;
+            gap: 8px;
+            animation: slideIn 0.3s ease;
+            position: relative;
+        }
+
+        .search-toggle:checked ~ .search-bar {
+            display: flex;
+        }
+
+        .search-toggle:checked ~ .search-icon {
+            display: none;
+        }
+
+        .search-bar-icon {
+            color: #e5e5e5;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .search-bar input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+            font-size: 14px;
+            width: 200px;
+        }
+
+        .search-bar input::placeholder {
+            color: #999;
+        }
+
+        .search-bar i {
+            color: #e5e5e5;
+            font-size: 16px;
+        }
         .user-icon {
             width: 32px;
             height: 32px;
@@ -325,8 +397,19 @@
             <a href="#">Movies</a>
             <a href="#">New & Popular</a>
             <a href="#">My List</a>
-            <div class="user-icon">U</div>
+            <a href="#">Browse by Languages</a>
         </nav>
+        <input type="checkbox" id="searchToggle" class="search-toggle">
+        <label for="searchToggle" class="search-icon">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </label>
+        <div class="search-bar">
+            <label for="searchToggle" class="search-bar-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </label>
+            <input type="text" placeholder="Titles, people, genres">
+        </div>
+        <div class="user-icon">U</div>
     </header>
 
     <section class="hero">
